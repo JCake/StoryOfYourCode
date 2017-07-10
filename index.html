@@ -1,0 +1,516 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- For embedded console from https://github.com/dluxemburg/reveal-run-in-terminal -->
+    <link rel="stylesheet" href="plugin/reveal-run-in-terminal.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section data-run-in-terminal-bin="node">
+                <section>Who are you?</section>
+                <section>
+                    <img data-src="artifacts/constant.png" />
+                </section>
+                <section>
+                    <img data-src="artifacts/undefined.png" />
+                </section>
+            </section>
+
+            <style>
+                .changed {
+                    color: lightgreen
+                }
+            </style>
+
+            <section>
+                <!-- TODO CODING Something with nested sections instead?? -->
+                <section>
+                    Once Upon a Time...
+                </section>
+                <section>
+                    { age: 8, interests: ['Math'] }
+                </section>
+                <section>
+                    { age: <span class="changed">12</span>, interests: ['Math', <span class="changed">'Problem Solving'</span>] }
+                </section>
+                <section>
+                    { age: <span class="changed">13</span>, interests: ['Math', 'Problem Solving', <span class="changed">'Cryptography'</span>] }
+                </section>
+                <section>
+                    { age: <span class="changed">17</span>, interests: ['Math', 'Problem Solving', 'Cryptography', <span class="changed">'Computer Programming'</span>] }
+                </section>
+                <section>
+                    { age: <span class="changed">18</span>, interests: ['Math', 'Problem Solving', 'Cryptography','Computer Programming'],
+                    <span class="changed">majors: ['Math', 'Computer Science']</span> }
+                </section>
+                <section>
+                    { age: <span class="changed">20</span>, interests: ['Math', 'Problem Solving', 'Cryptography','Computer Programming'], majors: [ <span class="changed">'Computer Science', 'Math'</span>] }
+                </section>
+                <section>
+                    { age: <span class="changed">23</span>, interests: ['Math', 'Problem Solving', 'Cryptography','Computer Programming'], majors: [ 'Computer Science', 'Math'], <span class="changed">codingPreference: 'Clever Code'</span> }
+                </section>
+            </section>
+
+            <style>
+                .triple-wrapper {
+                    display: flex !important;
+                    flex-direction: row;
+                    align-items: center;
+                }
+                
+                .small-4 {
+                    max-width: 32% !important;
+                    flex: 0 1 auto;
+                }
+            </style>
+            <!--
+            <section>
+                <section class="triple-wrapper">
+                    <img data-src="artifacts/BeautifulMind.jpg" class="small-4" />
+                    <span class="small-4">Clear progression of time, or not totally linear?</span>
+                    <img data-src="artifacts/BlueValentine.jpg" class="small-4" />
+                </section>
+                <section>
+                    <pre><code data-trim data-noescape>
+let jessica = { interests: ['Math'] };
+wait(2).then(() => {
+    jessica.interests.push('Problem Solving');
+    wait(2)
+}).then(() => {
+    jessica.interests.push('Cryptography');
+    wait(2)
+}).then(() => {
+    jessica.interests.push('Computer Programming');
+});
+						</code></pre>
+                </section>
+                <section>
+                    <pre><code data-trim data-noescape>
+let jessica = { interests: ['Math'] };
+wait(2).then( () => {
+	jessica.interests.push('Problem Solving');
+});
+wait(4).then( () => {
+	jessica.interests.push('Cryptography');
+});
+wait(6).then( () => {
+	jessica.interests.push('Computer Programming');
+});
+						</code></pre>
+                </section>
+            </section>-->
+
+            <section>
+                <section class="triple-wrapper">
+                    <img src="artifacts/Inception.jpg" class="small-4" />
+                    <span class="small-4">Story that has nested layers or continues to iterate on the same ideas?</span>
+                    <img src="artifacts/TheHangover3.jpg" class="small-4" />
+                </section>
+                <section><pre><code data-trim data-noescape>
+findFactorsOf(inputNum, candidate = 2) {
+  if (inputNum <= 1) {
+    return [];
+  } else {
+    if (inputNum % candidate === 0) {
+      return [candidate].concat(
+        this.findFactorsOf(inputNum / candidate, candidate)
+      );
+    } else {
+      return this.findFactorsOf(inputNum, candidate + 1);
+    }
+  }
+}
+				</code></pre></section>
+
+                <section><pre><code data-trim data-noescape>
+findFactorsOf(inputNum) {
+  const primeFactors = [];
+  let candidate = 2;
+  while (inputNum > 1) {
+    while (inputNum % candidate === 0) {
+      primeFactors.push(candidate);
+      inputNum /= candidate;
+    }
+    candidate++;
+  }
+  return primeFactors;
+}
+				</code></pre></section>
+            </section>
+
+            <style>
+                .bigcode pre {
+                    margin-left: 0;
+                    margin-right: 0;
+                    width: 100%;
+                }
+                
+                .bigcode code {
+                    max-height: initial !important;
+                    height: 100%;
+                }
+                
+                .bigcode.taller pre {
+                    margin-top: -2%;
+                }
+                
+                .bigcode.somewhat-wider pre {
+                    margin-left: -10%;
+                    margin-right: -10%;
+                    width: 120%;
+                }
+                
+                .bigcode.even-wider pre {
+                    margin-left: -15%;
+                    margin-right: -15%;
+                    width: 130%;
+                }
+            </style>
+            <section>
+                <section class="triple-wrapper">
+                    <img src="artifacts/FastAndFurious5.jpg" class="small-4" />
+                    <span class="small-4">Action-Focused or Descriptive?</span>
+                    <img src="artifacts/LordOfTheRings.jpg" class="small-4" />
+                </section>
+                <section class="bigcode">
+                    <pre><code data-trim data-noescape>
+describe('Prime Factors Finder', () => {
+  const primeFactorsFinder = new PrimeFactorsFinder();
+  const inputsAndOutputs = [
+    [1, []],  [2, [2]],
+    [3, [3]], [4, [2, 2]],
+    [6, [2, 3]], 
+    [8, [2, 2, 2]],
+    [9, [3, 3]]
+  ];
+  inputsAndOutputs.forEach((inputAndOutput) => {
+    const input = inputAndOutput[0];
+    const output = inputAndOutput[1];
+    it(`should return [${output}] for prime factors of ${input}`, () => {
+      expect(primeFactorsFinder.findFactorsOf(1)).toEqual([]);
+    });
+  });
+});
+					</code></pre>
+                </section>
+                <section class="bigcode even-wider">
+                    <pre><code data-trim data-noescape>
+describe('Finding Prime Factors of a Number in Ascending Order', () => {
+  const primeFactorsFinder = new PrimeFactorsFinder();
+  it('should return empty list for 1, since 1 is considered to have no prime factors', () => {
+    expect(primeFactorsFinder.findFactorsOf(1)).toEqual([]);
+  });
+  it('should return the number itself when the number is prime', () => {
+    expect(primeFactorsFinder.findFactorsOf(2)).toEqual([2]);
+  });
+  it('should return two prime numbers that when multiplied give the input number', () => {
+    expect(primeFactorsFinder.findFactorsOf(4)).toEqual([2, 2]);
+  });
+  it('should return more than two prime numbers that when multiplied give the input', () => {
+    expect(primeFactorsFinder.findFactorsOf(8)).toEqual([2, 2, 2]);
+  });
+  it('should find the prime factors of a non-even, non-prime number', () => {
+    expect(primeFactorsFinder.findFactorsOf(9)).toEqual([3, 3]);
+  });
+});
+					</code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section class="triple-wrapper">
+                    <img src="artifacts/Gravity.jpg" class="small-4" />
+                    <span class="small-4">See everything at once or broken up into installments?</span>
+                    <img src="artifacts/SherlockHolmes.jpg" class="small-4" />
+                </section>
+                <section class="bigcode even-wider">
+                    <pre><code data-trim data-noescape>
+countTriangles(input) {
+    const listsOfSidesForPossibleTriangles = input.split('\n');
+    let count = 0;
+    listsOfSidesForPossibleTriangles.forEach((possibleTriangle) => {
+        const sides = input.match(/(\d+)/g);
+        let isTriangle = false;
+        if (sides.length === 3) {
+            const sideA = parseInt(sides[0]);
+            const sideB = parseInt(sides[1]);
+            const sideC = parseInt(sides[2]);
+            isTriangle = sideA + sideB > sideC && sideB + sideC > sideA && sideC + sideA > sideB;
+        }
+        if (isTriangle) {
+            ++count;
+        }
+    });
+    return count;
+}
+					</code></pre>
+                </section>
+                <section class="bigcode somewhat-wider taller">
+                    <pre><code data-trim data-noescape>
+countTriangles(input) {
+    const listsOfSidesForPossibleTriangles = input.split('\n');
+    return this.countTrianglesInList(listsOfSidesForPossibleTriangles);
+}
+countTrianglesInList(listsOfSidesForPossibleTriangles) {
+    return listsOfSidesForPossibleTriangles.filter(this.isValidTriangle).length;
+}
+isValidTriangle(input) {
+    const sides = input.match(/(\d+)/g);
+    if (this.hasThreeSides(sides)) {
+        return this.couldBeTriangleGivenSideLengths(sides);
+    } else {
+        return false;
+    }
+}
+hasThreeSides(sides) {
+    return sides.length === 3;
+}
+couldBeTriangleGivenSideLengths(sides) {
+    const sideA = parseInt(sides[0]);
+    const sideB = parseInt(sides[1]);
+    const sideC = parseInt(sides[2]);
+    return sideA + sideB > sideC && sideB + sideC > sideA && sideC + sideA > sideB;
+}
+					</code></pre>
+                </section>
+            </section>
+
+            <section>
+                <section>knowing === joy</section>
+                <section>only knowing === personal journal</section>
+                <section>applying === story teller</section>
+            </section>
+
+            <section>
+                <section>Purpose</section>
+                <section>Audience</section>
+                <section>Editors and Co-Authors</section>
+            </section>
+            <section>
+                <section>Code Reviews and Pair Programming</section>
+                <section>
+                    <img src="artifacts/crucible.png" />
+                    <div>http://freecode.com/projects/cruciblecodereview</div>
+                    <div>https://www.atlassian.com/software/crucible</div>
+                    <!-- $10 for up to 5 users.  $1,000 + for bigger teams -->
+                </section>
+                <section>
+                    <div>Github Code Reviews</div>
+                    <img src="artifacts/githubCodeReviewExample.png" />
+                    <div>https://blog.mozilla.org/webdev/2011/11/21/git-using-topic-branches-and-interactive-rebasing-effectively/</div>
+                </section>
+                <section>
+                    Code Brag (http://codebrag.com/)
+                    <img src="artifacts/codeBragExample.png" />
+                </section>
+                <section>
+                    <img src="artifacts/pairProgramming.jpg" />
+                    <div>https://www.thoughtworks.com/insights/blog/effective-navigation-in-pair-programming</div>
+                </section>
+            </section>
+
+            <style>
+                .showing-options code {
+                    font-size: 10pt;
+                    line-height: 1.1em;
+                }
+                
+                .small-6-left {
+                    margin-left: -10% !important;
+                    width: 50%;
+                }
+                
+                .small-6-right {
+                    margin-left: 5% !important;
+                    width: 50%
+                }
+            </style>
+
+            <!-- Make sure to talk about importance of focusing on big picture things
+            rather than nitpicks that can be caught by static code analysis tools -->
+
+            <section>
+                <section>Feedback and Collaboration</section>
+                <!-- Won't always be easy - tell of time clever code was vetoed -
+                    but if you're willing to hear feedback and compromise, you can
+                    make the code base better...-->
+                <section class="showing-options triple-wrapper">
+                    <!-- Whether its finding a way to combine two different ideas -->
+                    <pre class="small-6-left"><code data-trim data-noescape>
+countTriangles(input) {
+  const listsOfSidesForPossibleTriangles = input.split('\n');
+  let count = 0;
+  listsOfSidesForPossibleTriangles.forEach((possibleTriangle) => {
+    const sides = input.match(/(\d+)/g);
+    let isTriangle = false;
+    if (sides.length === 3) {
+      const sideA = parseInt(sides[0]);
+      const sideB = parseInt(sides[1]);
+      const sideC = parseInt(sides[2]);
+      isTriangle = sideA + sideB > sideC && 
+        sideB + sideC > sideA && 
+        sideC + sideA > sideB;
+    }
+    if (isTriangle) {
+      ++count;
+    }
+  });
+  return count;
+}
+</code></pre>
+                    <pre class="small-6-right"><code data-trim data-noescape>
+countTriangles(input) {
+  const listsOfSidesForPossibleTriangles = input.split('\n');
+  return this.countTrianglesInList(listsOfSidesForPossibleTriangles);
+}
+countTrianglesInList(listsOfSidesForPossibleTriangles) {
+  return listsOfSidesForPossibleTriangles.filter(this.isValidTriangle).length;
+}
+isValidTriangle(input) {
+  const sides = input.match(/(\d+)/g);
+  if (this.hasThreeSides(sides)) {
+    return this.couldBeTriangleGivenSideLengths(sides);
+  } else {
+    return false;
+  }
+}
+hasThreeSides(sides) {
+  return sides.length === 3;
+}
+couldBeTriangleGivenSideLengths(sides) {
+  const sideA = parseInt(sides[0]);
+  const sideB = parseInt(sides[1]);
+  const sideC = parseInt(sides[2]);
+  return sideA + sideB > sideC && sideB + sideC > sideA && sideC + sideA > sideB;
+}
+					</code></pre>
+                </section>
+                <section class="bigcode somewhat-wider">
+                    <pre><code data-trim data-noescape>
+countTriangles(input) {
+	const possibleTriangles = input.split('\n');
+	let count = 0;
+	possibleTriangles.forEach((possibleTriangle) => {
+		const sides = input.match(/(\d+)/g);
+		if (this.isValidTriangle(sides)) {
+			++count;
+		}
+	});
+	return count;
+}
+isValidTriangle(sides) {
+	if (sides.length === 3) {
+		const sideA = parseInt(sides[0]);
+		const sideB = parseInt(sides[1]);
+		const sideC = parseInt(sides[2]);
+		return sideA + sideB > sideC && 
+			sideB + sideC > sideA && 
+			sideC + sideA > sideB;
+	} else {
+		return false;
+	}
+}
+				</code></pre>
+                </section>
+                <section>
+                    <img data-src="artifacts/webpackStart.png">
+                </section>
+                <section>
+                    <img data-src="artifacts/webpackNow.png">
+                </section>
+            </section>
+
+            <section>
+                <section></section>
+                <!-- TODO VB script image -->
+                <section>
+                    <img data-src="artifacts/visualBasicExcel.jpg" />
+                </section>
+                <!-- Angular code : more understandable by contributors.  BONUS:  more usable by end users -->
+                <section>
+                    <img data-src="artifacts/angular.png" />
+                </section>
+                <!-- sharing on Gitlab -->
+                <section>
+                    <img data-src="artifacts/gitlab.jpg" />
+                </section>
+            </section>
+
+            <section>
+                <section>
+                    { age: 23, interests: ['Math', 'Problem Solving', 'Cryptography', 'Computer Programming'], majors: [ 'Computer Science', 'Math'], codingPreference: 'Clever Code' }
+                </section>
+                <section>
+                    { age: <span class="changed">31</span>, interests: ['Math', 'Problem Solving', 'Cryptography','Computer Programming'], majors: [ 'Computer Science', 'Math'], <span class="changed">codingTendency</span>: 'Clever Code',
+                    <span class="changed">codingGoal: 'Community Code'</span> }
+                </section>
+            </section>
+
+            <!-- Question isn't just who are you, but who are we and what is our community -->
+            <section>
+                <img data-src="artifacts/mutableCommunity.png">
+            </section>
+
+        </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            dependencies: [{
+                src: 'plugin/markdown/marked.js'
+            }, {
+                src: 'plugin/markdown/markdown.js'
+            }, {
+                src: 'plugin/notes/notes.js',
+                async: true
+            }, {
+                src: 'plugin/highlight/highlight.js',
+                async: true,
+                callback: function() {
+                    hljs.initHighlightingOnLoad();
+                }
+            }, {
+                src: 'plugin/reveal-run-in-terminal.js',
+                callback: function() {
+                    RunInTerminal.init();
+                },
+                async: true
+            }]
+        });
+        Reveal.configure({
+            slideNumber: true,
+            history: true
+        });
+    </script>
+</body>
+
+</html>
