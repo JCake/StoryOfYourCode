@@ -355,11 +355,41 @@ couldBeTriangleGivenSideLengths(sides) {
             <section>
                 <section>Feedback and Collaboration</section>
                 <!-- Won't always be easy - tell of time clever code was vetoed -
-                    but if you're willing to hear feedback and compromise, you can
-                    make the code base better...-->
+                    I was tempted to tell them to suck it up and figure it out, but
+                    that wasn't what was best for my audience and for my code, so I made changes.  -->
+
+                <!-- You should always focus on your audience, yet there are times 
+                when that means teaching them something new instead of completely changing your 
+                way of doing things.  -->
+                <section>Teaching and Learning</section>
+
+                <!--For example, lots of programmers at UP are converting from 
+                Java to JavaScript and may find arrow functions confusing.  Rather than not using
+                arrow functions in my code at all, I teach them about arrow functions.  We have
+                weekly developer discussions on my team that help grow team knowledge and serve
+                as another means of gathering feedback and collaborating, teaching and learning together.
+                Talking through what's confusing can help you decide if you should change your code
+                or seek to change your collegue's way of thinking.  -->
+
+                <!-- If you love recursion, but your collegues just don't get it, take the time to 
+                explain it to them, see if you can teach them to love it like you do.  And if they
+                still don't like it, accept that you might have to adapt to their needs instead of
+                focusing on your own.  -->
+
+                <!-- Sometimes a story is best served by remaining try to the author's original style
+                and adding footnotes, appenda, or commentary to guide the reader.  Never choose
+                this route because it's easy - choose it because it is best for your audience.  
+                If you aren't sure what's best, bring in those editors and co-authors to help you.  -->
+
+                <!-- The whole point is that no matter what you do in telling your story, 
+                whether you change your code or you talk it out with others, you should
+                focus on your audience.  You might even find that different ideas aren't so 
+                different after all... -->
+
                 <section class="showing-options triple-wrapper">
-                    <!-- Whether its finding a way to combine two different ideas -->
                     <pre class="small-6-left"><code data-trim data-noescape>
+                        <!-- By collaborating, you can find that there is something between 
+                        using one method and using five methods -->
 countTriangles(input) {
   const listsOfSidesForPossibleTriangles = input.split('\n');
   let count = 0;
@@ -410,6 +440,11 @@ couldBeTriangleGivenSideLengths(sides) {
                 </section>
                 <section class="bigcode somewhat-wider">
                     <pre><code data-trim data-noescape>
+            <!-- Using two methods!  Still a rather direct solution, yet also descriptive,
+            and allowing for the possibility of checking individual inputs in isolation as 
+            well as checking a whole slew of inputs at once -->
+            <!-- This might seem obvious, but sometimes we get so dug into our own way of thinking,
+            our own story-telling style, that we don't see these opportunities to compromise. -->
 countTriangles(input) {
 	const possibleTriangles = input.split('\n');
 	let count = 0;
@@ -436,9 +471,12 @@ isValidTriangle(sides) {
 				</code></pre>
                 </section>
                 <section>
+                    <!-- Collaboration can also take you from a lone contributor on a side project -->
                     <img data-src="artifacts/webpackStart.png">
                 </section>
                 <section>
+                    <!-- To the originator of a tool used by thousands of people world-wide and
+                supported by hundreds of contributors.  That's the power of collaboartion! -->
                     <img data-src="artifacts/webpackNow.png">
                 </section>
             </section>
