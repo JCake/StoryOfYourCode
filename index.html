@@ -184,9 +184,9 @@ findFactorsOf(inputNum) {
                 }
                 
                 .bigcode.even-wider pre {
-                    margin-left: -15%;
-                    margin-right: -15%;
-                    width: 130%;
+                    margin-left: -12%;
+                    margin-right: -12%;
+                    width: 124%;
                 }
             </style>
             <section>
@@ -220,19 +220,19 @@ describe('Prime Factors Finder', () => {
                     <pre><code data-trim data-noescape>
 describe('Finding Prime Factors of a Number in Ascending Order', () => {
   const primeFactorsFinder = new PrimeFactorsFinder();
-  it('should return empty list for 1, since 1 is considered to have no prime factors', () => {
+  it('should return empty list for 1, since 1 is considered to have no prime factors',()=>{
     expect(primeFactorsFinder.findFactorsOf(1)).toEqual([]);
   });
-  it('should return the number itself when the number is prime', () => {
+  it('should return the number itself when the number is prime',() => {
     expect(primeFactorsFinder.findFactorsOf(2)).toEqual([2]);
   });
-  it('should return two prime numbers that when multiplied give the input number', () => {
+  it('should return two prime numbers that when multiplied give the input number',()=>{
     expect(primeFactorsFinder.findFactorsOf(4)).toEqual([2, 2]);
   });
-  it('should return more than two prime numbers that when multiplied give the input', () => {
+  it('should return more than two prime numbers that when multiplied give the input',()=>{
     expect(primeFactorsFinder.findFactorsOf(8)).toEqual([2, 2, 2]);
   });
-  it('should find the prime factors of a non-even, non-prime number', () => {
+  it('should find the prime factors of a non-even, non-prime number',() => {
     expect(primeFactorsFinder.findFactorsOf(9)).toEqual([3, 3]);
   });
 });
@@ -246,7 +246,7 @@ describe('Finding Prime Factors of a Number in Ascending Order', () => {
                     <span class="small-4">See everything at once or broken up into installments?</span>
                     <img src="artifacts/SherlockHolmes.jpg" class="small-4" />
                 </section>
-                <section class="bigcode even-wider">
+                <section class="bigcode somewhat-wider">
                     <pre><code data-trim data-noescape>
 countTriangles(input) {
     const listsOfSidesForPossibleTriangles = input.split('\n');
@@ -258,7 +258,8 @@ countTriangles(input) {
             const sideA = parseInt(sides[0]);
             const sideB = parseInt(sides[1]);
             const sideC = parseInt(sides[2]);
-            isTriangle = sideA + sideB > sideC && sideB + sideC > sideA && sideC + sideA > sideB;
+            isTriangle = sideA + sideB > sideC && 
+                sideB + sideC > sideA && sideC + sideA > sideB;
         }
         if (isTriangle) {
             ++count;
@@ -436,7 +437,7 @@ couldBeTriangleGivenSideLengths(sides) {
 }
 					</code></pre>
                 </section>
-                <section class="bigcode somewhat-wider">
+                <section class="bigcode">
                     <pre><code data-trim data-noescape>
 countTriangles(input) {
 	const possibleTriangles = input.split('\n');
